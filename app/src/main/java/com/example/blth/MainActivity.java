@@ -204,8 +204,6 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case STATE_CONNECTION_FAILED:
                     DeviceStatus_TV.setText("Connection Failed");
-                    Intent intent=new Intent(MainActivity.this,ChatActivity.class);
-                    startActivity(intent);
                     break;
                 case STATE_MESSAGE_RECIEVED:
                     byte[] readBuff= (byte[]) message.obj;
