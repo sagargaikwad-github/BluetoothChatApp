@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android Study/BLTh/app/src/main/res/layout/activity_chat.xml" value="0.17074275362318841" />
+        <entry key="..\:/Android Study/BLTh/app/src/main/res/layout/activity_chat.xml" value="0.18" />
         <entry key="..\:/Android Study/BLTh/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Android Study/BLTh/app/src/main/res/layout/chat_history_row.xml" value="0.17074275362318841" />
       </map>
     </option>
   </component>

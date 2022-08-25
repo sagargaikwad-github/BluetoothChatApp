@@ -1,120 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="2"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/MainScreen"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!--    <Button-->
-        <!--        android:id="@+id/turnOn_btn"-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:text="Turn On Bluetooth"-->
-        <!--        android:layout_marginTop="25dp"-->
-        <!--        android:layout_marginStart="25dp"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-        <!--    <Button-->
-        <!--        android:id="@+id/turnOff_btn"-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_weight="1"-->
-        <!--        android:text="Turn Off Bluetooth"-->
-        <!--        app:layout_constraintEnd_toEndOf="@+id/turnOn_btn"-->
-        <!--        app:layout_constraintStart_toStartOf="@+id/turnOn_btn"-->
-        <!--        app:layout_constraintTop_toBottomOf="@+id/turnOn_btn" />-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_height="match_parent">
+                <Button
+                    android:id="@+id/pairdDevice_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Paired Devices" />
+
+                <Button
+                    android:id="@+id/server_start_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Server Start"
+                    android:layout_margin="10dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/pairdDevice_btn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/pairdDevice_btn" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/deviceStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Not Connected"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/send_BTN" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/pairdDevice_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text=""
+        android:textSize="22sp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"></TextView>
+    <ListView
+        android:id="@+id/deviceName_LV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pairdDevice_TV" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+       android:id="@+id/MainChatScreen"
+       android:visibility="gone"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+       <TextView
+           android:id="@+id/connectedDeviceNameTV"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Connected To"
+           android:textSize="20sp"
+           android:textStyle="bold"
+           android:textColor="@color/black">
+       </TextView>
+
+       <ListView
+           android:id="@+id/chatListView"
+           android:layout_weight="2"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+       </ListView>
         <Button
-            android:id="@+id/pairdDevice_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:text="Show Paired Devices"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/server_start_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Server Start"
-            app:layout_constraintEnd_toEndOf="@+id/pairdDevice_btn"
-            app:layout_constraintStart_toStartOf="@+id/pairdDevice_btn"
-            app:layout_constraintTop_toBottomOf="@+id/pairdDevice_btn" />
-
-        <EditText
-            android:id="@+id/send_ET"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:ems="10"
-            android:hint="Type Your Message Here"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/server_start_btn" />
-
-        <Button
-            android:id="@+id/send_BTN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Send"
-            app:layout_constraintEnd_toEndOf="@+id/send_ET"
-            app:layout_constraintStart_toStartOf="@+id/send_ET"
-            app:layout_constraintTop_toBottomOf="@+id/send_ET" />
-
-        <TextView
-            android:id="@+id/deviceStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Not Connected"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/send_BTN" />
-
-        <TextView
-            android:id="@+id/message_TV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Message Display Here"
-            android:textSize="25sp"
-            android:layout_margin="80dp"
-            app:layout_constraintBottom_toTopOf="@+id/pairdDevice_TV"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/deviceStatus" />
-
-        <TextView
-            android:id="@+id/pairdDevice_TV"
+            android:id="@+id/disconnectBTN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text=""
-            android:textSize="22sp"
-            app:layout_constraintBottom_toTopOf="@+id/deviceName_LV"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"></TextView>
+            android:layout_marginBottom="20dp"
+            android:text="Disconnect"/>
+       <LinearLayout
+           android:layout_marginBottom="20dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+           <EditText
+               android:id="@+id/send_ET"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:ems="10"
+               android:layout_marginStart="30dp"
+               android:hint="Type Your Message Here"
+               android:inputType="textPersonName"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/server_start_btn" />
+           <Button
+               android:id="@+id/send_BTN"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Send"
+               android:layout_marginStart="30dp"
+               app:layout_constraintEnd_toEndOf="@+id/send_ET"
+               app:layout_constraintStart_toStartOf="@+id/send_ET"
+               app:layout_constraintTop_toBottomOf="@+id/send_ET" />
+       </LinearLayout>
+   </LinearLayout>
 
-        <ListView
-            android:id="@+id/deviceName_LV"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+</androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>
